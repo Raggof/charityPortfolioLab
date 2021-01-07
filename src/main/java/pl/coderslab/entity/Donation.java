@@ -13,10 +13,11 @@ public class Donation {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
     private Integer quantity;
-    @OneToMany
+    /*@ManyToMany
     private List<Category> categories;
-    @OneToOne
-    private Institution institution;
+    @ManyToOne
+    @JoinColumn(name = "institutionId")
+    private Institution institution;*/
     private String street;
     private String city;
     private String zipCode;
@@ -28,11 +29,11 @@ public class Donation {
     public Donation() {
     }
 
-    public Donation(Long id, Integer quantity,List<Category> categories, Institution institution, String street, String city, String zipCode, LocalDate pickUpDate, LocalTime pickUpTime, String pickUpComment) {
+    public Donation(Long id, Integer quantity,/*List<Category> categories, Institution institution,*/ String street, String city, String zipCode, LocalDate pickUpDate, LocalTime pickUpTime, String pickUpComment) {
         this.id = id;
         this.quantity = quantity;
-        this.categories = categories;
-        this.institution = institution;
+        /*this.categories = categories;
+        this.institution = institution;*/
         this.street = street;
         this.city = city;
         this.zipCode = zipCode;
@@ -57,7 +58,7 @@ public class Donation {
         this.quantity = quantity;
     }
 
-    public List<Category> getCategories() {
+    /*public List<Category> getCategories() {
         return categories;
     }
 
@@ -71,7 +72,7 @@ public class Donation {
 
     public void setInstitution(Institution institution) {
         this.institution = institution;
-    }
+    }*/
 
     public String getStreet() {
         return street;

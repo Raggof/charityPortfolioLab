@@ -20,8 +20,10 @@ public class HomeController {
 
     @RequestMapping("/")
     public String homeAction(Model model){
-        List<Institution> institList = institutionRepository.findAllInstitutions();
-        model.addAttribute("institList", institList);
+        List<String> institTitle = institutionRepository.findAllInstitutionsTitle();
+        model.addAttribute("institTitle", institTitle);
+        List<String> institDesc = institutionRepository.findAllInstitutionsDesc();
+        model.addAttribute("institDest", institDesc);
 
         return "index";
     }

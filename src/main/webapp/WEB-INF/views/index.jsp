@@ -85,7 +85,6 @@
                     <div class="subtitle">Cel i misja: Pomoc wybudzaniu dzieci ze śpiączki.</div>
                 </div>
             </li>
-
             <li>
                 <div class="col">
                     <div class="title">Fundacja “Dla dzieci"</div>
@@ -99,6 +98,10 @@
             </li>
 
         </ul>
+        <div class="help--slides-pagination">
+            <button type="button" class="btn prev-step">&#x3C;</button>
+            <button type="button" class="btn next-step">&#x3E;</button>
+        </div>
     </div>
 
 </section>

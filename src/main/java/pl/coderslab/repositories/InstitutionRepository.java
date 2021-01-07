@@ -10,6 +10,9 @@ import java.util.List;
 @Repository
 public interface InstitutionRepository  extends JpaRepository <Institution, Long> {
 
-    @Query(value = "SELECT h FROM Institution h")
-    List<Institution> findAllInstitutions();
+    @Query(value = "SELECT i.name FROM Institution i ")
+    List<String> findAllInstitutionsTitle();
+
+    @Query(value = "SELECT i.description FROM Institution i ")
+    List<String> findAllInstitutionsDesc();
 }

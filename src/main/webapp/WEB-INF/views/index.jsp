@@ -8,7 +8,7 @@
 <section class="stats">
     <div class="container container--85">
         <div class="stats--item">
-            <em>13</em>
+            <em>${countDonat}</em>
 
             <h3>Oddanych worków</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius est beatae, quod accusamus illum
@@ -16,7 +16,7 @@
         </div>
 
         <div class="stats--item">
-            <em>5</em>
+            <em>${sackQuan}</em>
             <h3>Przekazanych darów</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam magnam, sint nihil cupiditate quas
                 quam.</p>
@@ -86,7 +86,7 @@
                         </div>
                     <c:choose>
                         <c:when test="${loop.last && theCount %2 == 0}">
-                            <div class="col" style="visibility: hidden"> </div>
+                            <div class="col" style="visibility: hidden"></div>
                             </li>
                         </c:when>
                         <c:when test="${loop.last}">
@@ -99,30 +99,8 @@
                     </c:choose>
             </c:forEach>
 
-                <%--<li>
-                    <div class="col">
-                        <div class="title">Fundacja "Dbam o Zdrowie"</div>
-                        <div class="subtitle">Cel i misja: Pomoc dzieciom z ubogich rodzin.</div>
-                    </div>
-
-                    <div class="col">
-                        <div class="title">Fundacja "A kogo"</div>
-                        <div class="subtitle">Cel i misja: Pomoc wybudzaniu dzieci ze śpiączki.</div>
-                    </div>
-                </li>--%>
-                <%--<li>
-                    <div class="col">
-                        <div class="title">Fundacja “Dla dzieci"</div>
-                        <div class="subtitle">Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.</div>
-                    </div>
-                    <div class="col">
-                        <div class="title">Fundacja “Bez domu”</div>
-                        <div class="subtitle">Cel i misja: Pomoc dla osób nie posiadających miejsca zamieszkania</div>
-                    </div>
-
-                </li>--%>
-
         </ul>
+
         <div class="help--slides-pagination">
             <button type="button" class="btn prev-step">&#x3C;</button>
             <button type="button" class="btn next-step">&#x3E;</button>

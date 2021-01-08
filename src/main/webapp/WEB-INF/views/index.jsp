@@ -74,36 +74,53 @@
             Możesz sprawdzić czym się zajmują.</p>
 
         <ul class="help--slides-items">
-            <c:forEach items="${institTitle}" var="inst">
-                <li>
-                    <div class="col">
-                        <div class="title">Fundacja "${inst.name}"</div>
-                        <div class="subtitle">Cel i misja: ${inst.description}</div>
-                    </div>
-                </li>
+
+            <c:forEach items="${institList}" var="inst" begin="0" varStatus="loop">
+                <c:set value="${loop.index}" var="theCount"/>
+                <c:if test="${theCount==0}">
+                    <li>
+                </c:if>
+                        <div class="col">
+                            <div class="title">Fundacja "${inst.name}"</div>
+                            <div class="subtitle">Cel i misja: ${inst.description}</div>
+                        </div>
+                    <c:choose>
+                        <c:when test="${loop.last && theCount %2 == 0}">
+                            <div class="col" style="visibility: hidden"> </div>
+                            </li>
+                        </c:when>
+                        <c:when test="${loop.last}">
+                            </li>
+                        </c:when>
+                        <c:when test="${theCount %2 == 1}">
+                            </li>
+                            <li>
+                        </c:when>
+                    </c:choose>
             </c:forEach>
-            <%--<li>
-                <div class="col">
-                    <div class="title">Fundacja "Dbam o Zdrowie"</div>
-                    <div class="subtitle">Cel i misja: Pomoc dzieciom z ubogich rodzin.</div>
-                </div>
 
-                <div class="col">
-                    <div class="title">Fundacja "A kogo"</div>
-                    <div class="subtitle">Cel i misja: Pomoc wybudzaniu dzieci ze śpiączki.</div>
-                </div>
-            </li>--%>
-            <%--<li>
-                <div class="col">
-                    <div class="title">Fundacja “Dla dzieci"</div>
-                    <div class="subtitle">Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.</div>
-                </div>
-                <div class="col">
-                    <div class="title">Fundacja “Bez domu”</div>
-                    <div class="subtitle">Cel i misja: Pomoc dla osób nie posiadających miejsca zamieszkania</div>
-                </div>
+                <%--<li>
+                    <div class="col">
+                        <div class="title">Fundacja "Dbam o Zdrowie"</div>
+                        <div class="subtitle">Cel i misja: Pomoc dzieciom z ubogich rodzin.</div>
+                    </div>
 
-            </li>--%>
+                    <div class="col">
+                        <div class="title">Fundacja "A kogo"</div>
+                        <div class="subtitle">Cel i misja: Pomoc wybudzaniu dzieci ze śpiączki.</div>
+                    </div>
+                </li>--%>
+                <%--<li>
+                    <div class="col">
+                        <div class="title">Fundacja “Dla dzieci"</div>
+                        <div class="subtitle">Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.</div>
+                    </div>
+                    <div class="col">
+                        <div class="title">Fundacja “Bez domu”</div>
+                        <div class="subtitle">Cel i misja: Pomoc dla osób nie posiadających miejsca zamieszkania</div>
+                    </div>
+
+                </li>--%>
 
         </ul>
         <div class="help--slides-pagination">

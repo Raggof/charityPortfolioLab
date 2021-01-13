@@ -22,15 +22,14 @@ public class HomeController {
     }
 
     @RequestMapping("/")
-    public String homeAction(Model model){
+    public String homeAction(Model model) {
         List<Institution> institList = institutionRepository.findAll();
         model.addAttribute("institList", institList);
-        int sackQuan =  donationRepository.sumOfQuantity();
+        int sackQuan = donationRepository.sumOfQuantity();
         model.addAttribute("sackQuan", sackQuan);
-        int countDonat =  donationRepository.sumOfDonations();
+        long countDonat = donationRepository.count();
         model.addAttribute("countDonat", countDonat);
         return "index";
+
     }
-
-
 }

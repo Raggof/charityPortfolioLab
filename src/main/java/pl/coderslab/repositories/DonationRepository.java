@@ -6,9 +6,7 @@ import pl.coderslab.entity.Donation;
 
 public interface DonationRepository extends JpaRepository<Donation, Long> {
 
-    @Query(value = "SELECT SUM(quantity) as sum_quan from donations", nativeQuery = true)
+    @Query("SELECT SUM(d.quantity) FROM Donation d")
     int sumOfQuantity();
 
-    @Query(value = "SELECT COUNT(id) FROM donations",nativeQuery = true)
-    int sumOfDonations();
 }

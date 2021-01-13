@@ -8,7 +8,7 @@
 <section class="stats">
     <div class="container container--85">
         <div class="stats--item">
-            <em>${countDonat}</em>
+            <em>${sackQuan}</em>
 
             <h3>Oddanych worków</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius est beatae, quod accusamus illum
@@ -16,7 +16,7 @@
         </div>
 
         <div class="stats--item">
-            <em>${sackQuan}</em>
+            <em>${countDonat}</em>
             <h3>Przekazanych darów</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam magnam, sint nihil cupiditate quas
                 quam.</p>
@@ -76,35 +76,30 @@
         <ul class="help--slides-items">
 
             <c:forEach items="${institList}" var="inst" begin="0" varStatus="loop">
-                <c:set value="${loop.index}" var="theCount"/>
-                <c:if test="${theCount==0}">
+                <c:set value="${loop.count}" var="theCount"/>
+                <c:if test="${theCount %2 == 1}">
                     <li>
                 </c:if>
-                        <div class="col">
-                            <div class="title">Fundacja "${inst.name}"</div>
-                            <div class="subtitle">Cel i misja: ${inst.description}</div>
-                        </div>
-                    <c:choose>
-                        <c:when test="${loop.last && theCount %2 == 0}">
-                            <div class="col" style="visibility: hidden"></div>
-                            </li>
-                        </c:when>
-                        <c:when test="${loop.last}">
-                            </li>
-                        </c:when>
-                        <c:when test="${theCount %2 == 1}">
-                            </li>
-                            <li>
-                        </c:when>
-                    </c:choose>
+                <div class="col">
+                    <div class="title">Fundacja "${inst.name}"</div>
+                    <div class="subtitle">Cel i misja: ${inst.description}</div>
+                </div>
+
+                <c:if test="${loop.last && theCount %2 == 1}">
+                    <div class="col" style="visibility: hidden"></div>
+                </c:if>
+                <c:if test="${loop.last || theCount %2 == 0}">
+                    </li>
+                </c:if>
+
             </c:forEach>
 
         </ul>
 
-        <div class="help--slides-pagination">
+        <%--<div class="help--slides-pagination">
             <button type="button" class="btn prev-step">&#x3C;</button>
             <button type="button" class="btn next-step">&#x3E;</button>
-        </div>
+        </div>--%>
     </div>
 
 </section>

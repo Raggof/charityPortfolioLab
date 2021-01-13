@@ -9,7 +9,6 @@
 
 <form:form modelAttribute="donation">
 
-
     Kategorie:<br/>
     <c:forEach items="${categories}" var="category">
     <form:checkbox path="categories" value="${category.name}"/>${category.name}<br/>
@@ -35,6 +34,7 @@
     <form:input type="date" path="pickUpDate"/><br/>
     Godzina odebrania:<br/>
     <form:input type="time" path="pickUpTime"/><br/>
+    <button type="submit">Wyslij</button>
 </form:form>
 
 

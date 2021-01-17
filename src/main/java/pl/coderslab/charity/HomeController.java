@@ -8,6 +8,7 @@ import pl.coderslab.entity.Institution;
 import pl.coderslab.repositories.DonationRepository;
 import pl.coderslab.repositories.InstitutionRepository;
 
+import javax.validation.constraints.Null;
 import java.util.List;
 
 @Controller
@@ -25,11 +26,27 @@ public class HomeController {
     public String homeAction(Model model) {
         List<Institution> institList = institutionRepository.findAll();
         model.addAttribute("institList", institList);
-        int sackQuan = donationRepository.sumOfQuantity();
-        model.addAttribute("sackQuan", sackQuan);
+        String sackQuan = donationRepository.sumOfQuantity();
+        model.addAttribute("sackQuan", checkNullQuan(sackQuan));
         long countDonat = donationRepository.count();
-        model.addAttribute("countDonat", countDonat);
+        model.addAttribute("countDonat", checkCount(countDonat));
         return "index";
-
     }
+
+    public int checkNullQuan(String sackQuan){
+        if (sackQuan==null){
+            return 0;
+        } else {
+            return Integer.parseInt(sackQuan);
+        }
+    }
+
+    public long checkCount(long countDon){
+        if (countDon==0){
+            return 0;
+        } else {
+            return countDon;
+        }
+    }
+
 }

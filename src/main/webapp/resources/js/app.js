@@ -171,4 +171,70 @@ document.addEventListener("DOMContentLoaded", function() {
   if (form !== null) {
     new FormSteps(form);
   }
+
+
+  const checkboxListCat = document.querySelectorAll("input[name=categories]");
+  const cateSumm = document.getElementById("formCatSum");
+
+  function getCheckedCat(){
+    let arrayOfCat=[];
+
+    for (let i = 0; i < checkboxListCat.length; i++){
+      let checkbox = checkboxListCat[i];
+      if (checkbox.checked) {
+        arrayOfCat.push(checkboxListCat[i].nextElementSibling.nextElementSibling.nextElementSibling.textContent);
+      }
+    }
+    let catSumm = "";
+
+    if(arrayOfCat !== null) {
+      catSumm = arrayOfCat[0] + "";
+      } else if (arrayOfCat === null){
+      catSumm = "Brak wybranej kategirii! Wróć do 1 kroku."
+    }
+    for (let j = 1; j < arrayOfCat.length;j++){
+      catSumm = catSumm + ", "+ arrayOfCat[j];
+    }
+    cateSumm.innerText = catSumm;
+  }
+
+  const buttonSumm1 = document.getElementById("summ1");
+  buttonSumm1.addEventListener("click",function (){
+    getCheckedCat();
+  });
+
+  const buttonSumm2 = document.getElementById("summ2");
+
+  const radiobListInsti = document.querySelectorAll("input[name=institution]");
+  const instiSumm = document.getElementById("formInstitSum")
+
+  function getCheckInsti(){
+    const arrayOfInsti=[];
+
+    for (let i = 0; i < radiobListInsti.length; i++){
+      let radioCheck = radiobListInsti[i];
+      if (radioCheck.checked) {
+        arrayOfInsti.push(radiobListInsti[i].nextElementSibling.nextElementSibling.getElementsByClassName("title").item(0).firstElementChild.textContent);
+      }
+    }
+
+    let instSummView = "";
+
+    if(arrayOfInsti !== null) {
+      instSummView = arrayOfInsti[0] + "";
+    } else if (arrayOfInsti === null){
+      instSummView = "Brak wybranej instytucji! Wróć do 3 kroku."
+    }
+    for (let j = 1; j < arrayOfInsti.length;j++){
+      instSummView = instSummView + ", "+ arrayOfInsti[j];
+    }
+
+    instiSumm.innerText = instSummView;
+  }
+  const buttonSumm3 = document.getElementById("summ3");
+  buttonSumm3.addEventListener("click",function (){
+    getCheckInsti();
+  })
+
+  const buttonSumm4 = document.getElementById("summ4");
 });

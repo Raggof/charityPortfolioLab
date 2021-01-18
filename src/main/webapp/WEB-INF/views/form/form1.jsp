@@ -40,15 +40,15 @@
                     <div class="form-group form-group--checkbox">
                         <label>
                             <form:checkbox path="categories" value="${category.id}"/>
-                            <span class="checkbox"></span>
-                            <span class="description">${category.name}</span>
+                            <span class="checkbox" id="categCheck"></span>
+                            <span class="description" id="categVal">${category.name}</span>
                         </label>
                     </div>
                 </c:forEach>
-                <label><form:errors path="categories"/></label>
+                <form:errors path="categories"/>
 
                 <div class="form-group form-group--buttons">
-                    <button type="button" class="btn next-step">Dalej</button>
+                    <button type="button" class="btn next-step" id="summ1">Dalej</button>
                 </div>
             </div>
 
@@ -60,14 +60,14 @@
                 <div class="form-group form-group--inline">
                     <label>
                         Liczba 60l worków:
-                        <form:input type="number" min="1" path="quantity"/>
+                        <span id="quanVal"><form:input type="number" min="1" path="quantity"/></span>
                         <form:errors path="quantity"/>
                     </label>
                 </div>
 
                 <div class="form-group form-group--buttons">
                     <button type="button" class="btn prev-step">Wstecz</button>
-                    <button type="button" class="btn next-step">Dalej</button>
+                    <button type="button" class="btn next-step" id="summ2">Dalej</button>
                 </div>
             </div>
 
@@ -80,7 +80,7 @@
                             <form:radiobutton path="institution" value="${institution.id}"/>
                             <span class="checkbox radio"></span>
                             <span class="description">
-                  <div class="title">Fundacja “${institution.name}”</div>
+                                <div class="title">Fundacja “<span id="institVal">${institution.name}</span>”</div>
                   <div class="subtitle">
                     Cel i misja: ${institution.description}.
                   </div>
@@ -92,7 +92,7 @@
 
                 <div class="form-group form-group--buttons">
                     <button type="button" class="btn prev-step">Wstecz</button>
-                    <button type="button" class="btn next-step">Dalej</button>
+                    <button type="button" class="btn next-step" id="summ3">Dalej</button>
                 </div>
             </div>
 
@@ -104,25 +104,25 @@
                     <div class="form-section--column">
                         <h4>Adres odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Ulica <form:input path="street"/></label>
+                            <label> Ulica&nbsp;<span id="streetVal"><form:input path="street"/></span></label>
                             <form:errors path="street"/>
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label> Miasto <form:input path="city"/></label>
+                            <label>Miasto&nbsp;<span id="cityVal"><form:input path="city"/></span></label>
                             <form:errors path="city"/>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
-                                Kod pocztowy <form:input path="zipCode"/>
+                                Kod pocztowy&nbsp;<span id="zipCodeVal"><form:input path="zipCode"/></span>
                             </label>
                             <form:errors path="zipCode"/>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
-                                Numer telefonu <form:input path="phoneNumber"/>
+                                Numer telefonu&nbsp;<span id="phoneVal"><form:input path="phoneNumber"/></span>
                             </label>
                             <form:errors path="phoneNumber"/>
                         </div>
@@ -131,19 +131,19 @@
                     <div class="form-section--column">
                         <h4>Termin odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Data <form:input type="date" path="pickUpDate"/> </label>
+                            <label> Data&nbsp;<span id="dateVal"><form:input type="date" path="pickUpDate"/></span></label>
                             <form:errors path="pickUpDate"/>
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label> Godzina <form:input type="time" path="pickUpTime"/></label>
+                            <label> Godzina&nbsp;<span id="timeVal"><form:input type="time" path="pickUpTime"/></span></label>
                             <form:errors path="pickUpTime"/>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
-                                Uwagi dla kuriera
-                                <form:textarea path="pickUpComment"/>
+                                Uwagi dla kuriera&nbsp;
+                                <span id="commVal"><form:textarea path="pickUpComment"/></span>
                             </label>
                             <form:errors path="pickUpComment"/>
                         </div>
@@ -151,7 +151,7 @@
                 </div>
                 <div class="form-group form-group--buttons">
                     <button type="button" class="btn prev-step">Wstecz</button>
-                    <button type="button" class="btn next-step">Dalej</button>
+                    <button type="button" class="btn next-step" id="summ4">Dalej</button>
                 </div>
             </div>
 
@@ -164,16 +164,14 @@
                         <ul>
                             <li>
                                 <span class="icon icon-bag"></span>
-                                <span class="summary--text"
-                                >4 worki ubrań w dobrym stanie dla dzieci</span
-                                >
+                                <span class="summary--text" id="formQuanSum"
+                                ></span> worek/worki z kategorii:&nbsp;<span class="summary--text" id="formCatSum"></span>
                             </li>
 
                             <li>
                                 <span class="icon icon-hand"></span>
                                 <span class="summary--text"
-                                >Dla fundacji "Mam marzenie" w Warszawie</span
-                                >
+                                >Dla fundacji "</span><span class="summary--text" id="formInstitSum"></span>" w&nbsp;<span class="summary--text" id="formCitySum">Warszawie</span>
                             </li>
                         </ul>
                     </div>
@@ -182,19 +180,19 @@
                         <div class="form-section--column">
                             <h4>Adres odbioru:</h4>
                             <ul>
-                                <li>Prosta 51</li>
-                                <li>Warszawa</li>
-                                <li>99-098</li>
-                                <li>123 456 789</li>
+                                <li id="formStreetSum">Prosta 51</li>
+                                <li id="formCitySum2">Warszawa</li>
+                                <li id="formZipCodeSum">99-098</li>
+                                <li id="formPhoneNumberSum">123 456 789</li>
                             </ul>
                         </div>
 
                         <div class="form-section--column">
                             <h4>Termin odbioru:</h4>
                             <ul>
-                                <li>13/12/2018</li>
-                                <li>15:40</li>
-                                <li>Brak uwag</li>
+                                <li id="formDataSum">13/12/2018</li>
+                                <li id="formTimeSum">15:40</li>
+                                <li id="formCommForCourierSum">Brak uwag</li>
                             </ul>
                         </div>
                     </div>

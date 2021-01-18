@@ -131,19 +131,19 @@
                     <div class="form-section--column">
                         <h4>Termin odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Data&nbsp;<span id="dateVal"><form:input type="date" path="pickUpDate"/></span></label>
+                            <label> Data<form:input type="date" path="pickUpDate"/></label>
                             <form:errors path="pickUpDate"/>
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label> Godzina&nbsp;<span id="timeVal"><form:input type="time" path="pickUpTime"/></span></label>
+                            <label> Godzina<form:input type="time" path="pickUpTime"/></label>
                             <form:errors path="pickUpTime"/>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
                                 Uwagi dla kuriera&nbsp;
-                                <span id="commVal"><form:textarea path="pickUpComment"/></span>
+                                <form:textarea path="pickUpComment"/>
                             </label>
                             <form:errors path="pickUpComment"/>
                         </div>
@@ -165,7 +165,7 @@
                             <li>
                                 <span class="icon icon-bag"></span>
                                 <span class="summary--text" id="formQuanSum"
-                                ></span> worek/worki z kategorii:&nbsp;<span class="summary--text" id="formCatSum"></span>
+                                ></span>&nbsp;worek/worki z kategorii:&nbsp;<span class="summary--text" id="formCatSum"></span>
                             </li>
 
                             <li>

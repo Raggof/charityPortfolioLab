@@ -172,13 +172,11 @@ document.addEventListener("DOMContentLoaded", function() {
     new FormSteps(form);
   }
 
-
   const checkboxListCat = document.querySelectorAll("input[name=categories]");
   const cateSumm = document.getElementById("formCatSum");
 
   function getCheckedCat(){
     let arrayOfCat=[];
-
     for (let i = 0; i < checkboxListCat.length; i++){
       let checkbox = checkboxListCat[i];
       if (checkbox.checked) {
@@ -187,10 +185,10 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     let catSumm = "";
 
-    if(arrayOfCat !== null) {
-      catSumm = arrayOfCat[0] + "";
-      } else if (arrayOfCat === null){
+    if(arrayOfCat === undefined || arrayOfCat.length === 0) {
       catSumm = "Brak wybranej kategirii! Wróć do 1 kroku."
+    } else if (arrayOfCat !== null){
+      catSumm = arrayOfCat[0] + "";
     }
     for (let j = 1; j < arrayOfCat.length;j++){
       catSumm = catSumm + ", "+ arrayOfCat[j];
@@ -203,7 +201,26 @@ document.addEventListener("DOMContentLoaded", function() {
     getCheckedCat();
   });
 
+  const quanform = document.querySelector("input[id=quantity]");
+  const quanSumm = document.getElementById("formQuanSum");
+
+  function sendQuan(){
+    let quanSummView="";
+
+    if(quanform.value === "" || quanform.value === 0) {
+      quanSummView = "Brak podania ilości worków lub podano liczbę 0! Wróć do 2 kroku."
+    } else if (quanform.value !== null){
+      quanSummView = quanform.value + "";
+    }
+
+    quanSumm.innerText = quanSummView;
+
+  }
+
   const buttonSumm2 = document.getElementById("summ2");
+  buttonSumm2.addEventListener("click", function (){
+    sendQuan();
+  })
 
   const radiobListInsti = document.querySelectorAll("input[name=institution]");
   const instiSumm = document.getElementById("formInstitSum")
@@ -220,10 +237,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
     let instSummView = "";
 
-    if(arrayOfInsti !== null) {
-      instSummView = arrayOfInsti[0] + "";
-    } else if (arrayOfInsti === null){
+    if( arrayOfInsti === undefined || arrayOfInsti.length === 0) {
       instSummView = "Brak wybranej instytucji! Wróć do 3 kroku."
+    } else if (arrayOfInsti !== null){
+      instSummView = arrayOfInsti[0] + "";
     }
     for (let j = 1; j < arrayOfInsti.length;j++){
       instSummView = instSummView + ", "+ arrayOfInsti[j];
@@ -236,5 +253,52 @@ document.addEventListener("DOMContentLoaded", function() {
     getCheckInsti();
   })
 
+  const streetVal = document.querySelector("input[id=street]");
+  const cityVal = document.querySelector("input[id=city]");
+  const zipCodeVal = document.querySelector("input[id=zipCode]");
+  const phoneVal = document.querySelector("input[id=phoneNumber]");
+  const dateVal = document.querySelector("input[id=pickUpDate]");
+  const timeVal = document.querySelector("input[id=pickUpTime]");
+  const commVal = document.getElementById("pickUpComment");
+
+  const streetSumm = document.getElementById("formStreetSum");
+  const citySumm = document.getElementById("formCitySum");
+  const citySumm2 = document.getElementById("formCitySum2");
+  const zipCodeSumm = document.getElementById("formZipCodeSum");
+  const phoneSumm = document.getElementById("formPhoneNumberSum");
+  const dateSumm = document.getElementById("formDataSum");
+  const timeSumm = document.getElementById("formTimeSum");
+  const commSumm = document.getElementById("formCommForCourierSum");
+
+  function sendLocationDate(){
+
+    streetSumm.innerText = streetVal.value;
+    citySumm.innerText = cityVal.value;
+    citySumm2.innerText = cityVal.value;
+    zipCodeSumm.innerText = zipCodeVal.value;
+
+    let counter=0;
+    let beforeSepa = phoneVal.value+"";
+    let sepaPhone="";
+
+    for (let x = 0; x<beforeSepa.length; x++){
+      sepaPhone = sepaPhone + beforeSepa.charAt(x);
+      counter++;
+      if(counter===3 ) {
+        sepaPhone = sepaPhone + " ";
+        counter=0;
+      }
+    }
+
+    phoneSumm.innerText = sepaPhone;
+    dateSumm.innerText = dateVal.value;
+    timeSumm.innerText = timeVal.value;
+    commSumm.innerText = commVal.value;
+  }
+
+
   const buttonSumm4 = document.getElementById("summ4");
+  buttonSumm4.addEventListener("click", function (){
+    sendLocationDate();
+  })
 });

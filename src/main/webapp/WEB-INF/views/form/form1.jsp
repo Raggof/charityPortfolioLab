@@ -171,7 +171,7 @@
                             <li>
                                 <span class="icon icon-hand"></span>
                                 <span class="summary--text"
-                                >Dla fundacji "</span><span class="summary--text" id="formInstitSum"></span>" w&nbsp;<span class="summary--text" id="formCitySum">Warszawie</span>
+                                >Dla fundacji "</span><span class="summary--text" id="formInstitSum"></span>" w&nbsp;mieście:<span class="summary--text" id="formCitySum"></span>
                             </li>
                         </ul>
                     </div>
@@ -180,19 +180,19 @@
                         <div class="form-section--column">
                             <h4>Adres odbioru:</h4>
                             <ul>
-                                <li id="formStreetSum">Prosta 51</li>
-                                <li id="formCitySum2">Warszawa</li>
-                                <li id="formZipCodeSum">99-098</li>
-                                <li id="formPhoneNumberSum">123 456 789</li>
+                                <li id="formStreetSum"></li>
+                                <li id="formCitySum2"></li>
+                                <li id="formZipCodeSum"></li>
+                                <li id="formPhoneNumberSum"></li>
                             </ul>
                         </div>
 
                         <div class="form-section--column">
                             <h4>Termin odbioru:</h4>
                             <ul>
-                                <li id="formDataSum">13/12/2018</li>
-                                <li id="formTimeSum">15:40</li>
-                                <li id="formCommForCourierSum">Brak uwag</li>
+                                <li id="formDataSum"></li>
+                                <li id="formTimeSum"></li>
+                                <li id="formCommForCourierSum"></li>
                             </ul>
                         </div>
                     </div>

@@ -271,31 +271,32 @@ document.addEventListener("DOMContentLoaded", function() {
   const commSumm = document.getElementById("formCommForCourierSum");
 
   function sendLocationDate(){
-
-    streetSumm.innerText = streetVal.value;
-    citySumm.innerText = cityVal.value;
-    citySumm2.innerText = cityVal.value;
-    zipCodeSumm.innerText = zipCodeVal.value;
+    if (streetVal.innerText === ""){streetSumm.innerText = "Brak nazwy ulicy!"} else {streetSumm.innerText = streetVal.value;}
+    if (cityVal.innerText === ""){citySumm.innerText = "Brak nazwy ulicy!"; citySumm2.innerText = "Brak nazwy ulicy!";} else {citySumm.innerText = cityVal.value; citySumm2.innerText = cityVal.value;}
+    if (zipCodeVal.value === ""){zipCodeSumm.innerText = "Brak kodu pocztowego!"} else {zipCodeSumm.innerText = zipCodeVal.value;}
 
     let counter=0;
     let beforeSepa = phoneVal.value+"";
     let sepaPhone="";
 
-    for (let x = 0; x<beforeSepa.length; x++){
-      sepaPhone = sepaPhone + beforeSepa.charAt(x);
-      counter++;
-      if(counter===3 ) {
-        sepaPhone = sepaPhone + " ";
-        counter=0;
+    if (phoneVal.innerText === ""){phoneSumm.innerText = "Brak numeru telefonu!"} else {
+      citySumm.innerText = cityVal.value;
+      for (let x = 0; x < beforeSepa.length; x++) {
+        sepaPhone = sepaPhone + beforeSepa.charAt(x);
+        counter++;
+        if (counter === 3) {
+          sepaPhone = sepaPhone + " ";
+          counter = 0;
+        }
       }
     }
 
-    phoneSumm.innerText = sepaPhone;
-    dateSumm.innerText = dateVal.value;
-    timeSumm.innerText = timeVal.value;
-    commSumm.innerText = commVal.value;
-  }
+    if (dateVal.value === ""){dateSumm.innerText = "Brak wybranej daty!"} else {dateSumm.innerText = dateVal.value;}
 
+    if (timeVal.value === ""){timeSumm.innerText = "Brak podania godziny!"} else {timeSumm.innerText = timeVal.value;}
+
+    if (commVal.value === ""){commSumm.innerText = "Brak uwag.";} else {commSumm.innerText = commVal.value;}
+  }
 
   const buttonSumm4 = document.getElementById("summ4");
   buttonSumm4.addEventListener("click", function (){

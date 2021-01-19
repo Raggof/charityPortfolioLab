@@ -46,4 +46,5 @@ public class Institution {
     public void setDescription(String description) {
         this.description = description;
     }
+
 }

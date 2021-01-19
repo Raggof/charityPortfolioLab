@@ -271,16 +271,15 @@ document.addEventListener("DOMContentLoaded", function() {
   const commSumm = document.getElementById("formCommForCourierSum");
 
   function sendLocationDate(){
-    if (streetVal.innerText === ""){streetSumm.innerText = "Brak nazwy ulicy!"} else {streetSumm.innerText = streetVal.value;}
-    if (cityVal.innerText === ""){citySumm.innerText = "Brak nazwy ulicy!"; citySumm2.innerText = "Brak nazwy ulicy!";} else {citySumm.innerText = cityVal.value; citySumm2.innerText = cityVal.value;}
+    if (streetVal.value === ""){streetSumm.innerText = "Brak nazwy ulicy!"} else {streetSumm.innerText = streetVal.value;}
+    if (cityVal.value === ""){citySumm.innerText = "Brak nazwy ulicy!"; citySumm2.innerText = "Brak nazwy ulicy!";} else {citySumm.innerText = cityVal.value; citySumm2.innerText = cityVal.value;}
     if (zipCodeVal.value === ""){zipCodeSumm.innerText = "Brak kodu pocztowego!"} else {zipCodeSumm.innerText = zipCodeVal.value;}
 
     let counter=0;
     let beforeSepa = phoneVal.value+"";
     let sepaPhone="";
 
-    if (phoneVal.innerText === ""){phoneSumm.innerText = "Brak numeru telefonu!"} else {
-      citySumm.innerText = cityVal.value;
+    if (phoneVal.value === ""){phoneSumm.innerText = "Brak numeru telefonu!"} else {
       for (let x = 0; x < beforeSepa.length; x++) {
         sepaPhone = sepaPhone + beforeSepa.charAt(x);
         counter++;
@@ -290,11 +289,10 @@ document.addEventListener("DOMContentLoaded", function() {
         }
       }
     }
+    phoneSumm.innerText = sepaPhone;
 
     if (dateVal.value === ""){dateSumm.innerText = "Brak wybranej daty!"} else {dateSumm.innerText = dateVal.value;}
-
     if (timeVal.value === ""){timeSumm.innerText = "Brak podania godziny!"} else {timeSumm.innerText = timeVal.value;}
-
     if (commVal.value === ""){commSumm.innerText = "Brak uwag.";} else {commSumm.innerText = commVal.value;}
   }
 

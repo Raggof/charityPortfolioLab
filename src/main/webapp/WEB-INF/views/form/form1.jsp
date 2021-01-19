@@ -171,7 +171,7 @@
                             <li>
                                 <span class="icon icon-hand"></span>
                                 <span class="summary--text"
-                                >Dla fundacji "</span><span class="summary--text" id="formInstitSum"></span>" w&nbsp;mieście:<span class="summary--text" id="formCitySum"></span>
+                                >Dla fundacji "</span><span class="summary--text" id="formInstitSum"></span>" w&nbsp;mieście:&nbsp;<span class="summary--text" id="formCitySum"></span>
                             </li>
                         </ul>
                     </div>

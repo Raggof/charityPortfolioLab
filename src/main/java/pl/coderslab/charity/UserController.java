@@ -43,7 +43,7 @@ public class UserController {
         userService.save(userForm);
 
         securityService.autoLogin(userForm.getName(), userForm.getPasswordConfirm());
-
+        System.out.println(userForm.getPassword());
         return "redirect:/";
     }
 

@@ -1,7 +1,7 @@
 package pl.coderslab.services;
 
 public interface SecurityService {
-    String findLoggedInUsername();
+    String findLoggedInName();
 
     void autoLogin(String username, String password);
 }

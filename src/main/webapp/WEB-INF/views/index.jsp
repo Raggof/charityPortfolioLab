@@ -8,7 +8,15 @@
 <section class="stats">
     <div class="container container--85">
         <div class="stats--item">
-            <em>${sackQuan}</em>
+            <c:set value="${sackQuan}" var="sackQuanVar"/>
+            <c:choose>
+                <c:when test="${sackQuanVar == null}">
+                    <em>${sackQuanVar = 0}</em>
+                </c:when>
+                <c:otherwise>
+                    <em>${sackQuan}</em>
+                </c:otherwise>
+            </c:choose>
 
             <h3>Oddanych worków</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius est beatae, quod accusamus illum
@@ -16,6 +24,15 @@
         </div>
 
         <div class="stats--item">
+            <c:set value="${countDonat}" var="countDonatVar"/>
+            <c:choose>
+                <c:when test="${countDonatVar == null}">
+                    <em>${countDonatVar = 0}</em>
+                </c:when>
+                <c:otherwise>
+                    <em>${countDonat}</em>
+                </c:otherwise>
+            </c:choose>
             <em>${countDonat}</em>
             <h3>Przekazanych darów</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam magnam, sint nihil cupiditate quas
@@ -51,7 +68,7 @@
         </div>
     </div>
 
-    <a href="#" class="btn btn--large">Załóż konto</a>
+    <a href="registration" class="btn btn--large">Załóż konto</a>
 </section>
 
 <section class="about-us">

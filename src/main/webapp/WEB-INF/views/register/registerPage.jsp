@@ -8,22 +8,34 @@
 
 <section class="login-page">
     <h2>Załóż konto</h2>
-    <form>
-        <div class="form-group">
-            <input type="email" name="email" placeholder="Email" />
-        </div>
-        <div class="form-group">
-            <input type="password" name="password" placeholder="Hasło" />
-        </div>
-        <div class="form-group">
-            <input type="password" name="password2" placeholder="Powtórz hasło" />
-        </div>
+
+        <form:form method="POST" modelAttribute="userForm">
+            <spring:bind path="name">
+                <div class="form-group ${status.error ? 'has-error' : ''}">
+                    <form:input type="email" path="name" class="form-control" placeholder="Email" autofocus="true"/>
+                    <form:errors path="name"/>
+                </div>
+            </spring:bind>
+
+            <spring:bind path="password">
+                <div class="form-group ${status.error ? 'has-error' : ''}">
+                    <form:input type="password" path="password" class="form-control" placeholder="Password"/>
+                    <form:errors path="password"/>
+                </div>
+            </spring:bind>
+
+            <spring:bind path="passwordConfirm">
+                <div class="form-group ${status.error ? 'has-error' : ''}">
+                    <form:input type="password" path="passwordConfirm" class="form-control" placeholder="Confirm password"/>
+                    <form:errors path="passwordConfirm"/>
+                </div>
+            </spring:bind>
 
         <div class="form-group form-group--buttons">
-            <a href="login.html" class="btn btn--without-border">Zaloguj się</a>
+            <a href="login" class="btn btn--without-border">Zaloguj się</a>
             <button class="btn" type="submit">Załóż konto</button>
         </div>
-    </form>
+        </form:form>
 </section>
 
 <%@ include file="../footer.jsp" %>

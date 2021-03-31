@@ -19,16 +19,6 @@ public class User {
     private Set<Role> roles;
 
 
-    public User(Long id, String name, String password, String passwordConfirm, Set<Role> roles) {
-        this.id = id;
-        this.name = name;
-        this.password = password;
-        this.passwordConfirm = passwordConfirm;
-        this.roles = roles;
-    }
-
-    public User() {
-    }
 
     public Long getId() {
         return id;

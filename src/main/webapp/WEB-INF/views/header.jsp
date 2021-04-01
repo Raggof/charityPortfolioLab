@@ -16,8 +16,17 @@
 <header class="header--main-page">
     <nav class="container container--70">
         <ul class="nav--actions">
-            <li><a href="" class="btn btn--small btn--without-border">Zaloguj</a></li>
-            <li><a href="#" class="btn btn--small btn--highlighted">Załóż konto</a></li>
+            <form id="logoutForm" method="POST" action="${contextPath}/logout">
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+            </form>
+            <c:if test="${pageContext.request.userPrincipal.name != null}">
+                <li>Witaj ${pageContext.request.userPrincipal.name} !</li>
+                <li><a onclick="document.forms['logoutForm'].submit()">Wyloguj</a></li>
+            </c:if>
+            <c:if test="${pageContext.request.userPrincipal.name == null}">
+            <li><a href="login" class="btn btn--small btn--without-border">Zaloguj</a></li>
+            <li><a href="registration" class="btn btn--small btn--highlighted">Załóż konto</a></li>
+            </c:if>
         </ul>
 
         <ul>

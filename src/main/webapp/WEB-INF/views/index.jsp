@@ -8,31 +8,13 @@
 <section class="stats">
     <div class="container container--85">
         <div class="stats--item">
-            <c:set value="${sackQuan}" var="sackQuanVar"/>
-            <c:choose>
-                <c:when test="${sackQuanVar == null}">
-                    <em>${sackQuanVar = 0}</em>
-                </c:when>
-                <c:otherwise>
-                    <em>${sackQuan}</em>
-                </c:otherwise>
-            </c:choose>
-
+            <em>${sackQuan}</em>
             <h3>Oddanych worków</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius est beatae, quod accusamus illum
                 tempora!</p>
         </div>
 
         <div class="stats--item">
-            <c:set value="${countDonat}" var="countDonatVar"/>
-            <c:choose>
-                <c:when test="${countDonatVar == null}">
-                    <em>${countDonatVar = 0}</em>
-                </c:when>
-                <c:otherwise>
-                    <em>${countDonat}</em>
-                </c:otherwise>
-            </c:choose>
             <em>${countDonat}</em>
             <h3>Przekazanych darów</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam magnam, sint nihil cupiditate quas

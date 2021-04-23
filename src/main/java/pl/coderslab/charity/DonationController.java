@@ -35,8 +35,9 @@ public class DonationController {
         model.addAttribute("categories", catList);
         List<Institution> instList = institutionRepository.findAll();
         model.addAttribute("institutions", instList);
+
         model.addAttribute("donation", new Donation());
-        return "form/form1";
+        return "form/form";
     }
 
     @RequestMapping("/thankyou")
@@ -45,14 +46,14 @@ public class DonationController {
     }
 
     @RequestMapping(value = "/form", method = RequestMethod.POST)
-    public String saveDentist(@Valid Donation donation, BindingResult result, Model model) {
-
+    public String saveDonation(@Valid Donation donation, BindingResult result, Model model) {
         List<Category> catList = categoryRepository.findAll();
         model.addAttribute("categories", catList);
         List<Institution> instList = institutionRepository.findAll();
         model.addAttribute("institutions", instList);
+
         if (result.hasErrors()) {
-            return "form/form1";
+            return "form/form";
         }
         donationRepository.save(donation);
         return "redirect:/thankyou";

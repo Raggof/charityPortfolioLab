@@ -272,7 +272,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   function sendLocationDate(){
     if (streetVal.value === ""){streetSumm.innerText = "Brak nazwy ulicy!"} else {streetSumm.innerText = streetVal.value;}
-    if (cityVal.value === ""){citySumm.innerText = "Brak nazwy ulicy!"; citySumm2.innerText = "Brak nazwy ulicy!";} else {citySumm.innerText = cityVal.value; citySumm2.innerText = cityVal.value;}
+    if (cityVal.value === ""){citySumm.innerText = "Brak nazwy miasta!"; citySumm2.innerText = "Brak nazwy miasta!";} else {citySumm.innerText = cityVal.value; citySumm2.innerText = cityVal.value;}
     if (zipCodeVal.value === ""){zipCodeSumm.innerText = "Brak kodu pocztowego!"} else {zipCodeSumm.innerText = zipCodeVal.value;}
 
     let counter=0;

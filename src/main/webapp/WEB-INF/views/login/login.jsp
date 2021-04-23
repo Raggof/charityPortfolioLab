@@ -14,7 +14,6 @@
         <form method="POST" action="${contextPath}/login" class="form-signin">
 
             <div class="form-group ${error != null ? 'has-error' : ''}">
-                <span>${message}</span>
                 <div class="form-group">
                         <input name="username" type="email" placeholder="Email"/>
                 </div>
@@ -22,9 +21,9 @@
                         <input name="password" type="password" placeholder="Password"/>
                     <span>${error}</span>
                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                    <span>${message}</span>
                     <a href="#" class="btn btn--small btn--without-border reset-password">Przypomnij hasło</a>
                 </div>
-
                 <div class="form-group form-group--buttons">
                     <a href="registration" class="btn btn--without-border">Załóż konto</a>
                     <button class="btn" type="submit">Zaloguj się</button>

@@ -11,6 +11,9 @@ import pl.coderslab.entity.Institution;
 import pl.coderslab.repositories.CategoryRepository;
 import pl.coderslab.repositories.DonationRepository;
 import pl.coderslab.repositories.InstitutionRepository;
+import pl.coderslab.services.CategoryService;
+import pl.coderslab.services.DonationService;
+import pl.coderslab.services.InstitutionService;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -19,21 +22,21 @@ import java.util.List;
 @Controller
 public class DonationController {
 
-    private final CategoryRepository categoryRepository;
-    private final InstitutionRepository institutionRepository;
-    private final DonationRepository donationRepository;
+    private final CategoryService categoryService;
+    private final InstitutionService institutionService;
+    private final DonationService donationService;
 
-    public DonationController(CategoryRepository categoryRepository, InstitutionRepository institutionRepository, DonationRepository donationRepository) {
-        this.categoryRepository = categoryRepository;
-        this.institutionRepository = institutionRepository;
-        this.donationRepository = donationRepository;
+    public DonationController(CategoryService categoryService, InstitutionService institutionService, DonationService donationService) {
+        this.categoryService = categoryService;
+        this.institutionService = institutionService;
+        this.donationService = donationService;
     }
 
     @RequestMapping("/form")
     public String formAction(Model model){
-        List<Category> catList = categoryRepository.findAll();
+        List<Category> catList = categoryService.findAllCategory();
         model.addAttribute("categories", catList);
-        List<Institution> instList = institutionRepository.findAll();
+        List<Institution> instList = institutionService.findAllInstitution();
         model.addAttribute("institutions", instList);
 
         model.addAttribute("donation", new Donation());
@@ -47,15 +50,15 @@ public class DonationController {
 
     @RequestMapping(value = "/form", method = RequestMethod.POST)
     public String saveDonation(@Valid Donation donation, BindingResult result, Model model) {
-        List<Category> catList = categoryRepository.findAll();
+        List<Category> catList = categoryService.findAllCategory();
         model.addAttribute("categories", catList);
-        List<Institution> instList = institutionRepository.findAll();
+        List<Institution> instList = institutionService.findAllInstitution();
         model.addAttribute("institutions", instList);
 
         if (result.hasErrors()) {
             return "form/form";
         }
-        donationRepository.save(donation);
+        donationService.save(donation);
         return "redirect:/thankyou";
     }
 

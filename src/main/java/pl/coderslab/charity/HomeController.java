@@ -6,27 +6,29 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.entity.Institution;
 import pl.coderslab.repositories.DonationRepository;
 import pl.coderslab.repositories.InstitutionRepository;
+import pl.coderslab.services.DonationService;
+import pl.coderslab.services.InstitutionService;
 
 import java.util.List;
 
 @Controller
 public class HomeController {
 
-    private final InstitutionRepository institutionRepository;
-    private final DonationRepository donationRepository;
+    private final InstitutionService institutionService;
+    private final DonationService donationService;
 
-    public HomeController(InstitutionRepository institutionRepository,DonationRepository donationRepository) {
-        this.institutionRepository = institutionRepository;
-        this.donationRepository = donationRepository;
+    public HomeController(InstitutionService institutionService,DonationService donationService) {
+        this.institutionService = institutionService;
+        this.donationService = donationService;
     }
 
     @RequestMapping("/")
     public String homeAction(Model model) {
-        List<Institution> institList = institutionRepository.findAll();
+        List<Institution> institList = institutionService.findAllInstitution();
         model.addAttribute("institList", institList);
-        String sackQuan = donationRepository.sumOfQuantity();
+        String sackQuan = donationService.sumOfQuantity();
         model.addAttribute("sackQuan", checkNullQuan(sackQuan));
-        long countDonat = donationRepository.count();
+        long countDonat = donationService.count();
         model.addAttribute("countDonat", checkCount(countDonat));
         return "index";
     }
